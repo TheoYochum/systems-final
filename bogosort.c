@@ -147,7 +147,7 @@ void client() {
   machines[0] = "pimento";
   machines[1] = "owl";
   while (i < 2) {
-    ip = calloc(25, sizeof(char));
+    ip = calloc(17, sizeof(char));
     strcpy(ip, machines[i]);
     strcat(ip, ip_base);
     printf("ip: %s when i = %d", ip, i);
