@@ -142,14 +142,15 @@ void client() {
     sd[i] = -1;
   }
   int maxsd = 0;
-  int i = 1;
+  int i = 0;
   char ** machines = calloc(2, sizeof(char *));
   machines[0] = "pimento";
   machines[1] = "owl";
   while (i < 2) {
-    ip = calloc(17, sizeof(char));
+    ip = calloc(25, sizeof(char));
     strcpy(ip, machines[i]);
     strcat(ip, ip_base);
+    printf("ip: %s when i = %d", ip, i);
     // if(i < 10 ) {
     //   sprintf(cpu_num, "0%d", i);
     // } else {
