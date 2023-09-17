@@ -91,7 +91,7 @@ void server() {
   printf("\nConnected!\n");
   int success = 1;
   write(client_socket, &success, sizeof(int));
-
+  sleep(1)
   int len;
   read(client_socket, &len, sizeof(int));
   int halt = 1;
