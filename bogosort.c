@@ -127,7 +127,7 @@ void server() {
 
 void client() {
   srand(time(NULL) + getpid());
-  char * ip_base = "149.89.161.1";
+  char * ip_base = ".cs.swarthmore.edu";
   char * ip;
   char * cpu_num = calloc(3, sizeof(char));
   int connections = 0;
@@ -143,15 +143,18 @@ void client() {
   }
   int maxsd = 0;
   int i = 1;
-  while (i <= 34) {
+  char ** machines = calloc(2, sizeof(char *));
+  machines[0] = "pimento";
+  machines[1] = "owl";
+  while (i < 2) {
     ip = calloc(17, sizeof(char));
-    strcpy(ip, ip_base);
-    if(i < 10 ) {
-      sprintf(cpu_num, "0%d", i);
-    } else {
-      sprintf(cpu_num, "%d", i);
-    }
-    strcat(ip, cpu_num);
+    strcpy(ip, machines[i]);
+    strcat(ip, ip_base);
+    // if(i < 10 ) {
+    //   sprintf(cpu_num, "0%d", i);
+    // } else {
+    //   sprintf(cpu_num, "%d", i);
+    // }
 
     printf("\nAttempting to connect to %s on port: %s\n", ip, PORT);
 
@@ -203,7 +206,7 @@ void client() {
     free(ip);
   }
 
-  printf("\nEstablished a connection with %d/34 computers\n", connections);
+  printf("\nEstablished a connection with %d computers\n", connections);
   if (connections == 0) {
     printf("No successful connections were established\n");
     return;
