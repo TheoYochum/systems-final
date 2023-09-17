@@ -150,6 +150,7 @@ void client() {
     ip = calloc(25, sizeof(char));
     strcpy(ip, machines[i]);
     strcat(ip, ip_base);
+    strcat(ip, "\0");
     printf("ip: %s when i = %d", ip, i);
     // if(i < 10 ) {
     //   sprintf(cpu_num, "0%d", i);
